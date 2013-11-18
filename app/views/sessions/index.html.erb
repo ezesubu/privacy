@@ -90,28 +90,43 @@
 						<span>Eque porro quisquam est qui dolorem ipsum quia dolors</span>
 					</div>				
 				<div class="form_register">
-					
+				<form  id="signupForm" method="get" action="">
 					<div class="login">
 						<span>NOMBRES</span><br>
-						<input type="text" value="" name="email" class="input">
+						<input type="text" value="" name="name" class="input">
 					</div>
 					<div class="login">
 						<span>APELLIDOS</span><br>
-						<input type="text" value="" name="email" class="input">
+						<input type="text" value="" name="last_name" class="input">
 					</div>	
 
 					<div class="login">
-						<span>USUARIO O EMAIL</span><br>
+						<span>EMAIL</span><br>
 						<input type="text" value="" name="email" class="input">
+					</div>
+
+					<div class="login">
+						<span>CÉDULA</span><br>
+						<input type="text" value="" name="cedula" class="input">
 					</div>
 					<div class="login">
 						<span>CONTRASEÑA</span><br>
-						<input type="text" value="" name="email" class="input">
+						<input type="text" value="" name="password" class="input">
+					</div>
+					<div class="login">
+						<span>CONFIRME CONTRASEÑA</span><br>
+						<input type="text" value="" name="re_password" class="input">
 					</div>
 				</div>
 				<div class="separator"></div>				
 				<input type="submit" value="REGISTRARME"  class="submit" >
+				</form>
 			</div>
 		</div>
 	</section>
 </div>
+
+<%- content_for(:javascript) do -%>
+    <%= javascript_include_tag "jquery.validate"%>    
+    <%= javascript_include_tag "user"%>    
+<%- end -%>

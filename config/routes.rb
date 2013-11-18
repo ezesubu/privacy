@@ -1,22 +1,14 @@
 Privacity::Application.routes.draw do
   
 
-  resources :users
 
-  resources :oauth_clients
-  # match '/oauth/test_request',  :to => 'oauth#test_request',  :as => :test_request
-  # match '/oauth/token',         :to => 'oauth#token',         :as => :token
-  # match '/oauth/access_token',  :to => 'oauth#access_token',  :as => :access_token
-  # match '/oauth/request_token', :to => 'oauth#request_token', :as => :request_token
-  # match '/oauth/authorize',     :to => 'oauth#authorize',     :as => :authorize
-  # match '/oauth',               :to => 'oauth#index',         :as => :oauth
-  resources :books
+  # root 'sessions#index'
+  root :to =>'sessions#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'sessions#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

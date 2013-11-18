@@ -31,7 +31,7 @@ h2              { font-size: 1.5em; margin: .75em 0 }
 h3              { font-size: 1.17em; margin: .83em 0 }
 h4, p,
 blockquote, ul,
-fieldset, form,
+fieldset,
 ol, dl, dir,
 menu            { margin: 1.12em 0 }
 h5              { font-size: .83em; margin: 1.5em 0 }
@@ -341,7 +341,7 @@ footer{
 
 .form_register{
   margin-bottom: 10px;
-  margin-top: 77px;
+  margin-top: 6px;
 }
 
 nav {
@@ -523,3 +523,51 @@ select{
 .separator{
     height: 10px;
 }
+
+
+/**********************************
+
+Name: cmxform Styles
+
+***********************************/
+form.cmxform {
+  width: 370px;
+  font-size: 1.0em;
+  color: #333;
+}
+
+form.cmxform legend {
+  padding-left: 0;
+}
+
+form.cmxform legend, form.cmxform label {
+  color: #333;
+}
+
+form.cmxform fieldset {
+  border: none;
+  border-top: 1px solid #C9DCA6;
+  background: url(../images/cmxform-fieldset.gif) left bottom repeat-x;
+  background-color: #F8FDEF;
+}
+
+form.cmxform fieldset fieldset {
+  background: none;
+}
+
+form.cmxform fieldset p, form.cmxform fieldset fieldset {
+  padding: 5px 10px 7px;
+  background: url(../images/cmxform-divider.gif) left bottom repeat-x;
+}
+
+form.cmxform label.error, label.error {
+  /* remove the next line when you have trouble in IE6 with labels in list */
+  color: red;
+  font-style: italic
+}
+div.error { display: none; }
+input { border: 1px solid black; }
+input.checkbox { border: none }
+input:focus { border: 1px dotted black; }
+input.error { border: 1px dotted red; }
+form.cmxform .gray * { color: gray; }

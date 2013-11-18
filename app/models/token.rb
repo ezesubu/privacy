@@ -27,7 +27,7 @@ class Token
     # end
 
     def self.consumer(options={})
-        @client ||= OAuth2::Client.new('byy2sFKIGaaBwg47o9q5', '6491434591104786271361834006', DASHBOARD_SETTINGS.merge(options))
+        @client ||= OAuth2::Client.new('nT5OJJnFkSj2tl0IqEc6', '63541326441905342481384809344', DASHBOARD_SETTINGS.merge(options))
     end
 
     def self.save_token(user, token)

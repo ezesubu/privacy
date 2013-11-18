@@ -6,4 +6,22 @@ class ApplicationController < ActionController::Base
     def index        
         render :text => "hola"
     end 
+
+    def store_location
+        session[:return_to] = request.url
+    end
+   
+    def login_required
+        unless session[:user_id]
+            store_location
+            redirect_to root_url
+        end 
+        false
+    end
+
+    def redirect_back_or_default
+        redirect_to(session[:return_to] || home_path)
+        session[:return_to] = nil
+    end
+
 end
