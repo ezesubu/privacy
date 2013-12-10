@@ -26,4 +26,15 @@ Privacity::Application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
+  # config.action_mailer.default_url_options = { :host => "localhost:3000" }
+  ActionMailer::Base.delivery_method = :smtp
+    ActionMailer::Base.smtp_settings = {
+      :user_name => 'nethub_co',
+      :password => 'Go2Do2011',
+      :domain => 'localhost:3000',
+      :address => 'smtp.sendgrid.net',
+      :port => 587,
+      :authentication => :plain,
+      :enable_starttls_auto => true
+  }
 end

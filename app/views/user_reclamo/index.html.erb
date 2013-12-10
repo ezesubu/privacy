@@ -1,0 +1,48 @@
+
+	<div class="content">
+	<section>
+		<div class="left_content">
+			<div class="margin_right">
+				<div class="menu_mis_datos">
+					<span class="title_datos selected_menu">Lorem Ipsum dolor sit amect</span><br><br>
+					<span class="sustitle_datos">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer egestas eros et augue mollis, vel fermentum orci iaculis. <br><br>Integer eu erat ut enim aliquam gravida a non enim.<br><br> 	Donec venenatis lacinia velit quis gravida. Sed posuere mi eget nunc cursus mattis.. </span>
+				</div>
+				
+				<br><br>
+			</div>
+			<div class="bloque title_datos">
+				<img src="assets/images/about.png">
+				<div class="info_bloque">
+					<span class="bloque_title">
+						QUE ES?
+					</span><br>
+					<span class="bloque_text">
+					De que trata el tema
+					</span>
+				</div>
+			</div>
+		</div>
+		<div class="right_content">
+		<%= form_tag({:controller => "user_reclamo", :action => "create"}, :method => "POST", :id => "reclamoForm") do %>
+			<div class="subtitle_reclamos">
+			<br>
+			<br>
+			<br>
+				<span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer egestas eros et augue mollis, vel fermentum orci iaculis. </span><br>
+			</div>
+
+			<div class="subtitle_reclamos">
+					<div class="tittle_asunto">Asunto:</div>
+					<%= select('asunto',nil, Reclamo.all.collect {|p| [ p.asunto, p.id ] }, {include_blank: 'Seleccione una opción para el asunto del reclamo'}) %>
+			</div>
+
+			<div class="subtitle_reclamos">
+					<div class="tittle_reclamo">Reclamo:</div>
+					<textarea  name="text_reclamo" rows="4" cols="50"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer egestas eros et augue mollis, vel fermentum orci iaculis. eu  erat ut enim aliquam gravida a non enim. Donec venenatis lacinia velit quis gravida. Sed posuere mi eget nunc cursus mattis.</textarea>
+			
+			</div>			
+			<input type="submit" value="Enviar"  class="enviar_reclamo" >			
+		<% end  %>
+		</div>
+</section>
+	</div>

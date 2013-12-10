@@ -3,7 +3,7 @@ class Token
     #belongs_to :user
        	DASHBOARD_SETTINGS = {
             :site => "https://api.nethub.co/",
-            #:site => "http://localhost:8018/",
+            #:site => "http://10.0.0.154:8080/",
             :token_url => '/oauth2/token/',
             :oauth_version => 2
         }
@@ -27,7 +27,7 @@ class Token
     # end
 
     def self.consumer(options={})
-        @client ||= OAuth2::Client.new('nT5OJJnFkSj2tl0IqEc6', '63541326441905342481384809344', DASHBOARD_SETTINGS.merge(options))
+        @client ||= OAuth2::Client.new('3fa6Iiz4pvxTa2Z8oM1H', '90442761702029525331384879907', DASHBOARD_SETTINGS.merge(options))
     end
 
     def self.save_token(user, token)

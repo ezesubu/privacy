@@ -2,9 +2,22 @@ Privacity::Application.routes.draw do
   
 
 
+  resources :reclamos
+
   # root 'sessions#index'
   root :to =>'sessions#index'
 
+
+resources :user do
+  collection do    
+    get 'register_confirmation'    
+  end
+end
+
+resources :user_reclamo do
+  collection do      
+  end
+end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,0 +1,16 @@
+<section>   
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Asunto:</strong>
+  <%= @reclamo.asunto %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @reclamo.email %>
+</p>
+
+<%= link_to 'Edit', edit_reclamo_path(@reclamo) %> |
+<%= link_to 'Back', reclamos_path %>
+</section>   

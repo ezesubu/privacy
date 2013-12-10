@@ -1,0 +1,25 @@
+<%= form_for(@reclamo) do |f| %>
+  <% if @reclamo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@reclamo.errors.count, "error") %> prohibited this reclamo from being saved:</h2>
+
+      <ul>
+      <% @reclamo.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :asunto %><br>
+    <%= f.text_field :asunto %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

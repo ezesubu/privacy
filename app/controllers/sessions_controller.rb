@@ -2,8 +2,7 @@ class SessionsController < ApplicationController
 	
 	layout "application"
 
-	def index	
-		
+	def index			
 	end
 
 end

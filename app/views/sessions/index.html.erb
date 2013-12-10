@@ -27,7 +27,7 @@
 
 	<div class="bloque">
 		<img src="assets/images/about.png">
-		<div class="info_bloque">
+		<div class="info_bloque" id="que_es">
 			<span class="bloque_title">
 				QUE ES?
 			</span><br>
@@ -39,7 +39,7 @@
 
 	<div class="bloque">
 		<img src="assets/images/privacidad.png">
-		<div class="info_bloque">
+		<div class="info_bloque" id="privacidad">
 			<span class="bloque_title">
 				PRIVACIDAD
 			</span><br>
@@ -71,16 +71,18 @@
 					</div>
 				</div>	
 				<span>O tambien con tu usuario y contraseña</span><br><br>	
-				<div class="login">
-					<span>USUARIO O EMAIL</span><br>
-					<input type="text" value="" name="email" class="input">
-				</div>
-				<div class="login">
-					<span>CONTRASEÑA</span><br>
-					<input type="text" value="" name="email" class="input">
-				</div>	
-				<span class="forget_password">Olvide mi usuario o mi contraseña</span><br>
-				<input type="submit" value="INGRESAR"  class="submit" >
+				<form  id="signupForm" method="get" action="">
+					<div class="login">
+						<span>USUARIO O EMAIL</span><br>
+						<input type="text" value="" name="login_email" class="input">
+					</div>
+					<div class="login">
+						<span>CONTRASEÑA</span><br>
+						<input type="password" value="" name="login_password" class="input">
+					</div>	
+					<span class="forget_password">Olvide mi usuario o mi contraseña</span><br>
+					<input type="submit" value="INGRESAR"  class="submit" >
+				</form>
 			</div>
 			<div class="div_login">
 				<div class="title_login">
@@ -90,7 +92,8 @@
 						<span>Eque porro quisquam est qui dolorem ipsum quia dolors</span>
 					</div>				
 				<div class="form_register">
-				<form  id="signupForm" method="get" action="">
+				<%= form_tag({:controller => "user", :action => "create"}, :method => "POST", :id => "registerForm") do %>				
+				
 					<div class="login">
 						<span>NOMBRES</span><br>
 						<input type="text" value="" name="name" class="input">
@@ -111,16 +114,75 @@
 					</div>
 					<div class="login">
 						<span>CONTRASEÑA</span><br>
-						<input type="text" value="" name="password" class="input">
+						<input type="password" value="" name="password" id="password" class="input">
 					</div>
 					<div class="login">
 						<span>CONFIRME CONTRASEÑA</span><br>
-						<input type="text" value="" name="re_password" class="input">
+						<input type="password" value="" name="confirm_password" class="input">
 					</div>
 				</div>
 				<div class="separator"></div>				
 				<input type="submit" value="REGISTRARME"  class="submit" >
-				</form>
+				<% if flash[:valid] %>
+					<div class="flash_valid">
+            			<p ><%= flash[:valid] %></p>
+            		</div>d
+        		<% end %>
+        		<% if flash[:error] %>
+        			<div class="flash_error">
+            			<p ><%= flash[:error] %></p>
+            		</div>
+        		<% end %> 
+				<% end %>
+			</div>
+		</div>
+	</section>
+</div>
+
+<div class="content_que_es">
+	<section class="register">
+		<div class="content">
+			<div class="btn_login">
+			QUE ES?
+			</div>
+			<div class="subtitle">
+				De que trata el tema 
+			</div>
+			<div class="text">
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam mollis feugiat sem, varius adipiscing velit molestie id. Donec condimentum eu metus quis mattis. In interdum laoreet arcu, cursus tempus ipsum egestas tristique. Mauris iaculis malesuada ornare. Integer et turpis id metus mollis tincidunt in a nibh. Sed vehicula tellus nec ornare scelerisque. Pellentesque dictum accumsan lorem vel ultrices. Nulla quis ipsum lacus. Phasellus lacinia dolor nec lacus euismod egestas. Phasellus aliquam libero id arcu tincidunt hendrerit. Mauris id bibendum est, quis pulvinar lorem. Proin in sodales nunc. Vestibulum commodo tristique metus at semper.<br><br>
+
+			Donec bibendum magna ultrices risus elementum vehicula. Fusce vestibulum magna at ipsum iaculis malesuada. Duis volutpat suscipit ligula. Mauris non odio id neque accumsan vehicula. Sed rhoncus turpis non massa vehicula, vel dignissim nulla hendrerit. Proin tincidunt fermentum venenatis. Aenean tempus at enim sed sollicitudin. Mauris porta lectus tristique tincidunt malesuada. Integer tellus augue, adipiscing id fermentum ornare, faucibus vel mi. Nam sollicitudin magna eu tellus molestie, at bibendum eros varius. Fusce pulvinar euismod semper. Morbi pharetra tortor elit, ut laoreet sapien bibendum ut. Mauris at placerat sem. Donec eget nibh sit amet turpis dictum accumsan non at mi. Nulla viverra quam non nisi feugiat, faucibus ultricies diam rhoncus. Aliquam vulputate libero sed urna bibendum, ut iaculis leo blandit.<br><br>
+
+			Donec in imperdiet ante. Aliquam tristique bibendum massa. Nullam porta elit non mauris pellentesque, ut adipiscing turpis lacinia. Curabitur at congue arcu. Donec vitae tellus orci. Nulla nunc metus, pulvinar sit amet dolor at, blandit ornare felis. Duis in dui sit amet metus bibendum semper.<br><br>
+
+			Integer congue nunc vel quam mollis ullamcorper. Quisque porta ultricies tortor, non euismod est sagittis in. Mauris id dui nisl. Fusce magna purus, eleifend vel lobortis quis, interdum eu arcu. Donec ac turpis nisl. Integer at sem felis. Duis quis mollis massa, a consectetur tortor. Pellentesque fringilla lorem at nulla hendrerit, at mollis nisl feugiat.<br><br>
+
+			Suspendisse justo velit, cursus ut dolor nec, malesuada congue libero. Praesent egestas nibh mi, vitae iaculis arcu bibendum vel. Etiam lobortis feugiat leo ac pellentesque. Curabitur rutrum, enim et malesuada consectetur, mi erat euismod felis, sit amet pretium diam orci fermentum tellus. Nam aliquet accumsan dolor. Quisque rutrum tristique sem, eget imperdiet mauris varius ut. Nulla elementum diam nec massa vulputate vehicula. Sed justo ipsum, pulvinar a ullamcorper at, vestibulum auctor justo. Proin venenatis adipiscing ligula sed suscipit.  <br>
+			</div>
+		</div>
+	</section>
+</div>
+
+
+<div class="content_privacy">
+	<section class="register">
+		<div class="content">
+			<div class="btn_login">
+				PRIVACIDAD
+			</div>
+			<div class="subtitle">
+				Que hacemos con sus datos? 
+			</div>
+			<div class="text_privacity">
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam mollis feugiat sem, varius adipiscing velit molestie id. Donec condimentum eu metus quis mattis. In interdum laoreet arcu, cursus tempus ipsum egestas tristique. Mauris iaculis malesuada ornare. Integer et turpis id metus mollis tincidunt in a nibh. Sed vehicula tellus nec ornare scelerisque. Pellentesque dictum accumsan lorem vel ultrices. Nulla quis ipsum lacus. Phasellus lacinia dolor nec lacus euismod egestas. Phasellus aliquam libero id arcu tincidunt hendrerit. Mauris id bibendum est, quis pulvinar lorem. Proin in sodales nunc. Vestibulum commodo tristique metus at semper.<br><br>
+
+			Donec bibendum magna ultrices risus elementum vehicula. Fusce vestibulum magna at ipsum iaculis malesuada. Duis volutpat suscipit ligula. Mauris non odio id neque accumsan vehicula. Sed rhoncus turpis non massa vehicula, vel dignissim nulla hendrerit. Proin tincidunt fermentum venenatis. Aenean tempus at enim sed sollicitudin. Mauris porta lectus tristique tincidunt malesuada. Integer tellus augue, adipiscing id fermentum ornare, faucibus vel mi. Nam sollicitudin magna eu tellus molestie, at bibendum eros varius. Fusce pulvinar euismod semper. Morbi pharetra tortor elit, ut laoreet sapien bibendum ut. Mauris at placerat sem. Donec eget nibh sit amet turpis dictum accumsan non at mi. Nulla viverra quam non nisi feugiat, faucibus ultricies diam rhoncus. Aliquam vulputate libero sed urna bibendum, ut iaculis leo blandit.<br><br>
+
+			Donec in imperdiet ante. Aliquam tristique bibendum massa. Nullam porta elit non mauris pellentesque, ut adipiscing turpis lacinia. Curabitur at congue arcu. Donec vitae tellus orci. Nulla nunc metus, pulvinar sit amet dolor at, blandit ornare felis. Duis in dui sit amet metus bibendum semper.<br><br>
+
+			Integer congue nunc vel quam mollis ullamcorper. Quisque porta ultricies tortor, non euismod est sagittis in. Mauris id dui nisl. Fusce magna purus, eleifend vel lobortis quis, interdum eu arcu. Donec ac turpis nisl. Integer at sem felis. Duis quis mollis massa, a consectetur tortor. Pellentesque fringilla lorem at nulla hendrerit, at mollis nisl feugiat.<br><br>
+
+			Suspendisse justo velit, cursus ut dolor nec, malesuada congue libero. Praesent egestas nibh mi, vitae iaculis arcu bibendum vel. Etiam lobortis feugiat leo ac pellentesque. Curabitur rutrum, enim et malesuada consectetur, mi erat euismod felis, sit amet pretium diam orci fermentum tellus. Nam aliquet accumsan dolor. Quisque rutrum tristique sem, eget imperdiet mauris varius ut. Nulla elementum diam nec massa vulputate vehicula. Sed justo ipsum, pulvinar a ullamcorper at, vestibulum auctor justo. Proin venenatis adipiscing ligula sed suscipit.  <br>
 			</div>
 		</div>
 	</section>

@@ -1,0 +1,31 @@
+<section>   
+<h1>Listing reclamos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Asunto</th>
+      <th>Email</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @reclamos.each do |reclamo| %>
+      <tr>
+        <td><%= reclamo.asunto %></td>
+        <td><%= reclamo.email %></td>
+        <td><%= link_to 'Show', reclamo %></td>
+        <td><%= link_to 'Edit', edit_reclamo_path(reclamo) %></td>
+        <td><%= link_to 'Destroy', reclamo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Reclamo', new_reclamo_path %>
+</section>   
