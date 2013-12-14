@@ -1,7 +1,7 @@
 Privacity::Application.routes.draw do
   
 
-
+  resources :sessions
   resources :reclamos
 
   # root 'sessions#index'

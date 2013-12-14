@@ -15,6 +15,7 @@ class UserController < ApplicationController
 				tokenConsumer = Token.consumer
 				token = tokenConsumer.client_credentials.get_token({}, {"auth_scheme" => "request_body"})                        
 	            response = token.post('/person/', {body:  _user.to_json}).parsed
+	            binding.pry
 	            if response['success'] = true	            	
 	            	_user['id'] = response['id']
 	            	url = request.host	            	

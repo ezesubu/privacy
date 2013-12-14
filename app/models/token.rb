@@ -2,8 +2,8 @@ require 'oauth2'
 class Token
     #belongs_to :user
        	DASHBOARD_SETTINGS = {
-            :site => "https://api.nethub.co/",
-            #:site => "http://10.0.0.154:8080/",
+            #:site => "https://api.nethub.co/",
+            :site => "http://10.0.0.101:8080/",
             :token_url => '/oauth2/token/',
             :oauth_version => 2
         }

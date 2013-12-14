@@ -70,8 +70,9 @@
 					<div class="btn_social_media facebook">
 					</div>
 				</div>	
+
 				<span>O tambien con tu usuario y contraseña</span><br><br>	
-				<form  id="signupForm" method="get" action="">
+				<%= form_tag sessions_path , :id=>'signupForm', :autocomple => false do %>				
 					<div class="login">
 						<span>USUARIO O EMAIL</span><br>
 						<input type="text" value="" name="login_email" class="input">
@@ -82,7 +83,7 @@
 					</div>	
 					<span class="forget_password">Olvide mi usuario o mi contraseña</span><br>
 					<input type="submit" value="INGRESAR"  class="submit" >
-				</form>
+				<% end %>
 			</div>
 			<div class="div_login">
 				<div class="title_login">
