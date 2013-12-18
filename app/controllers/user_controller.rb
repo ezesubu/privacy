@@ -1,4 +1,5 @@
 class UserController < ApplicationController
+	before_filter  :login_required, :only => [:my_data]
 	
 	def create
 		_user={}
@@ -7,9 +8,8 @@ class UserController < ApplicationController
 			_user['last_name'] = params[:last_name] if params[:last_name]
 			_user['identifiers'] = {}
 			_user['identifiers']['email'] = params[:email]  if params[:email]  
-			_user['identifiers']['cedula'] = params[:cedula] if params[:cedula]
-			_user['characteristics'] = {}
-			_user['characteristics']['password_privacy'] = params[:password] if params[:password]
+			_user['identifiers']['cedula'] = params[:cedula] if params[:cedula]			
+			_user['privacy'] = params[:password] if params[:password]
 			_user['state'] = 'inactive'
 			begin
 				tokenConsumer = Token.consumer
@@ -33,7 +33,13 @@ class UserController < ApplicationController
 		end
 	end
 
-	def register_confirmation
-		binding.pry
+	def my_data
+		dasboardConsumer = Token.consumer
+        if session[:token_nethub]
+        	token_data = session[:token_nethub].clone
+            token = OAuth2::AccessToken.from_hash(dasboardConsumer, token_data)
+            response = token.get('me')
+            @me = response.parsed['data'][0]
+        end		
 	end
 end

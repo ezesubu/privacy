@@ -1,0 +1,76 @@
+<header>	
+		<%= render :file => "layouts/nav.html.erb" %>
+	</header>
+<section>	
+<div class="left_content">
+			<div class="margin_right">
+				<div class="menu_mis_datos">
+					<span class="title_datos selected_menu">Perfil Básico</span><br>
+					<span class="sustitle_datos">Consectetur adipiscing elit. </span>
+				</div>
+				<div class="menu_mis_datos ">
+					<span class="title_datos selected_menu">Identificadores</span><br>
+					<span class="sustitle_datos">Consectetur adipiscing elit.</span>
+				</div>
+				<div class="menu_mis_datos">
+					<span class="title_datos">Datos de contacto</span><br>
+					<span class="sustitle_datos">.Consectetur adipiscing elit.</span>
+				</div>
+				<div class="menu_mis_datos">
+					<span class="title_datos">Caracteristicas</span><br>
+					<span class="sustitle_datos">Consectetur adipiscing elit.</span>
+				</div>
+				<div class="menu_mis_datos">
+					<span class="title_datos">Comportamiento</span><br>
+					<span class="sustitle_datos">Consectetur adipiscing elit.</span>
+				</div>
+				<div class="menu_mis_datos">
+					<span class="title_datos">Relaciones</span><br>
+					<span class="sustitle_datos">Consectetur adipiscing elit.</span>
+				</div>
+				<br><br>
+			</div>
+			<div class="bloque title_datos">
+				<img src="assets/images/about.png">
+				<div class="info_bloque">
+					<span class="bloque_title">
+						QUE ES?
+					</span><br>
+					<span class="bloque_text">
+					De que trata el tema
+					</span>
+				</div>
+			</div>
+		</div>
+		<div class="right_content">
+			<div class="title_separator">
+				<span class="title_resumen_datos">Perfil Básico: Lorem ipsum dolor sit amect fecitum</span><br>
+			</div>
+			<input type="button" value="Exportar datos" class="btn_export">
+			
+				<div class="menu_mis_datos">
+					<span class="title_datos selected_menu">Perfil Básico</span><br>
+					<span class="sustitle_datos">Consectetur adipiscing elit. </span>
+				</div>			
+				<% @me.each do |data| %>
+					<% unless data[0]=='identifiers' ||  data[0]=='id' ||  data[0]=='token' ||  data[0]=='app_created' %>
+						<div class="un_dato">
+							<div class="tittle_dato"><%= data[0]  %></div>
+							<div class="el_dato"><%= data[1]  %></div>				
+						</div>
+					<%end%>
+					<%if data[0]=='identifiers' %>
+						<div class="un_dato">	
+							<div class="tittle_dato">Identifiers</div>
+						</div>					
+							<% data[1].each do |identifier| %>
+								<div class="un_dato">	
+									<div class="tittle_dato"><%= identifier['label'] %></div>
+									<div class="el_dato"><%= identifier['value'] %></div>		
+								</div>
+							<% end %>
+					<%end%>
+			<% end %>
+			
+		</div>
+</section>

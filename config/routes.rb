@@ -3,6 +3,7 @@ Privacity::Application.routes.draw do
 
   resources :sessions
   resources :reclamos
+  
 
   # root 'sessions#index'
   root :to =>'sessions#index'
@@ -24,7 +25,10 @@ end
   # You can have the root of your site routed with "root"
 
   # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
+  get 'welcome' => 'application#terms'
+  get 'me' => 'user#my_data'
+  get 'log_out' => 'sessions#log_out'
+  get 'user_reclamo' => 'userreclamo#index'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
